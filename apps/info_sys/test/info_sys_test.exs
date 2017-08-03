@@ -46,7 +46,7 @@ defmodule InfoSysTest do
   end
 
   test "compute/2 discards backend errors" do
-    assert InfoSys.compute("boom", backends: [TestBackend]) = []
+    assert InfoSys.compute("boom", backends: [TestBackend]) == []
     refute_received {:DOWN, _, _, _, _}
     refute_received :timedout
   end
